@@ -5,5 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz-App</title>
   </head>
-  <body></body>
+  <body>
+    <div id="display-question">
+      <div class="title">Welche Stadt ist die Hauptstadt von Deutschland</div>
+      <div class="field-left-up">
+        <button id="field-a" onclick="#">Hamburg</button>
+      </div>
+      <div class="field-left-down">
+        <button id="field-b" onclick="#">Berlin</button>
+      </div>
+      <div class="field-right-up">
+        <button onclick="#">München</button>
+      </div>
+      <div class="field-right-down">
+        <button onclick="#">Hannover</button>
+      </div>
+    </div>
+
+    <footer>
+      <div class="button-solution">
+        <button onclick="solutionFct()">Lösung</button>
+      </div>
+      <div class="button-on-going">
+        <button onclick="goFct()">Weiter</button>
+      </div>
+    </footer>
+  </body>
 </html>
