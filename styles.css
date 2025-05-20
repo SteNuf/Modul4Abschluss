@@ -1,5 +1,5 @@
 * {
-  margin: 0;
+  margin: 2rem;
   padding: 0;
   box-sizing: border-box;
 }
@@ -8,21 +8,26 @@ body {
   font-family: "Times New Roman", Times, serif;
 }
 
-.display-question {
-  display: grid;
-}
-
 .title {
   font-weight: bolder;
-  font-size: 2rem;
+  font-size: 2.6rem;
   text-align: center;
   text-shadow: 1px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
-.total-answer {
-  grid-template-rows: 1fr 1fr;
+.total-answer-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
+
 .answer {
+  text-align: center;
+  justify-content: center;
   border-radius: 2px grey;
+  padding: 3rem;
   color: red;
+  font-size: 2rem;
 }
