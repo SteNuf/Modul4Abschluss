@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.display-question {
+  display: grid;
+}
+
+.title {
+  font-weight: bolder;
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 1px;
+}
+
+.total-answer {
+  grid-template-rows: 1fr 1fr;
+}
+.answer {
+  border-radius: 2px grey;
+  color: red;
+}
