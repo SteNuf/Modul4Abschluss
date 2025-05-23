@@ -10,19 +10,17 @@
     <div id="display-question-container" class="full-container">
       <div class="title">Welche Stadt ist die Hauptstadt von Deutschland?</div>
       <div class="total-answer-container">
-        <button class="answer" onclick="#">Berlin</button>
+        <button id="true" class="answer" onclick="#">Berlin</button>
         <button class="answer" onclick="#">München</button>
         <button class="answer" onclick="#">Hamburg</button>
         <button class="answer" onclick="#">Hannover</button>
       </div>
     </div>
 
-    <footer>
+    <footer class="footer-container">
       <div class="button-solution">
-        <button onclick="solutionFct()">Lösung</button>
-      </div>
-      <div class="button-on-going">
-        <button onclick="goFct()">Weiter</button>
+        <button class="footer-button" onclick="solutionFct()">Lösung</button>
+        <button class="footer-button" onclick="goFct()">Weiter</button>
       </div>
     </footer>
   </body>
