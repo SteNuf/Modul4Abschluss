@@ -39,6 +39,8 @@ body {
   color: var(--text-color);
   font-size: 2rem;
   border-color: var(--border-color);
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 5px;
 }
 
 .answer:hover,
@@ -46,13 +48,22 @@ body {
   background-color: var(--hover-color);
 }
 
-#true:active {
+.answer.right {
   background-color: var(--true-color);
 }
 
-.answer:active {
+.answer.wrong {
   background-color: var(--false-color);
 }
+
+/* #true:active {
+  background-color: var(--true-color);
+}*/
+
+/*
+.answer:active {
+  background-color: var(--false-color);
+}*/
 
 .footer-container {
   display: flex;
@@ -64,4 +75,5 @@ body {
   padding: 2rem;
   border-radius: 15px;
   font-size: 1.8rem;
+  border: none;
 }
