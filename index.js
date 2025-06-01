@@ -12,7 +12,7 @@ const questions = [
       {
         id: "b",
         text: "Berlin",
-        correct: truee,
+        correct: true,
       },
       {
         id: "c",
@@ -32,22 +32,22 @@ const questions = [
     answers: [
       {
         id: "a",
-        text: "München",
-        correct: false,
-      },
-      {
-        id: "b",
-        text: "Berlin",
+        text: "Paris",
         correct: true,
       },
       {
+        id: "b",
+        text: "Marseille",
+        correct: false,
+      },
+      {
         id: "c",
-        text: "Hamburg",
+        text: "Lyon",
         correct: false,
       },
       {
         id: "d",
-        text: "Hannover",
+        text: "Bordeaux",
         correct: false,
       },
     ],
@@ -55,6 +55,35 @@ const questions = [
 ];
 
 // TODO 11: Frage Rendern;
+
+function renderQuestion() {
+  const question = questions[0];
+
+  const questionDiv = document.createElement("div");
+  questionDiv.classList.add("full-container");
+
+  const questionTitle = document.createElement("div");
+  questionTitle.classList.add("title");
+
+  questionTitle.appendChild(document.createTextNode(question.question));
+
+  const questionAnswer = document.createElement("div");
+  questionAnswer.classList.add("total-answer-container");
+
+  question.answers.forEach((answer) => {
+    const answerDiv = document.createElement("button");
+    answerDiv.classList.add("answer");
+    answerDiv.appendChild(document.createTextNode(answer.text));
+    questionAnswer.appendChild(answerDiv);
+  });
+
+  questionDiv.appendChild(questionTitle);
+  questionDiv.appendChild(questionAnswer);
+
+  document
+    .getElementById("display-question-container")
+    .appendChild(questionDiv);
+}
 
 //TODO 12: "Next"Logik
 //
@@ -64,4 +93,3 @@ const questions = [
 //
 //
 //  TODO 10: Fragen
-c;
