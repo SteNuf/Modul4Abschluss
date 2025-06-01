@@ -54,12 +54,14 @@ const questions = [
   },
 ];
 
+let currentQuestion;
+let currentQuestionPointer = -1;
+
 // TODO 11: Frage Rendern;
 
-function renderQuestion() {
-  const question = questions[0];
-
+function renderQuestion(question) {
   const questionDiv = document.createElement("div");
+  questionDiv.id = question.id;
   questionDiv.classList.add("full-container");
 
   const questionTitle = document.createElement("div");
@@ -72,6 +74,8 @@ function renderQuestion() {
 
   question.answers.forEach((answer) => {
     const answerDiv = document.createElement("button");
+    answerDiv.id = answer.id;
+    answerDiv.setAttribute("onclick", `validate('${answer.id}')`);
     answerDiv.classList.add("answer");
     answerDiv.appendChild(document.createTextNode(answer.text));
     questionAnswer.appendChild(answerDiv);
@@ -86,10 +90,41 @@ function renderQuestion() {
 }
 
 //TODO 12: "Next"Logik
-//
-// //TODO Frage beantworten mit Logik
+function nextQuestion() {
+  if (currentQuestion) {
+    document.getElementById(String(currentQuestion.id)).remove();
+  }
+
+  if (currentQuestionPointer + 1 < questions.length) {
+    currentQuestionPointer++;
+    currentQuestion = questions[currentQuestionPointer];
+  } else {
+    currentQuestionPointer = 0;
+    currentQuestion = questions[currentQuestionPointer];
+  }
+  renderQuestion(currentQuestion);
+}
+
+//TODO 13: Frage beantworten mit Logik
+function validate(answerId) {
+  const corretAnswer = currentQuestion.answers.find((answer) => {
+    return answer.correct;
+  });
+
+  if (corretAnswer.id === answerId) {
+    alert("Richtig");
+    document.getElementById(answerId).classList.add("right");
+  } else {
+    alert("Falsch");
+    document.getElementById(answerId).classList.add("wrong");
+    document.getElementById(corretAnswer.id).classList.add("right");
+  }
+}
 
 // TODO 14: Lösung anzeigen
-//
-//
-//  TODO 10: Fragen
+function showSolution() {
+  const corretAnswer = currentQuestion.answers.find((answer) => {
+    return answer.correct;
+  });
+  document.getElementById(corretAnswer.id).classList.add("right");
+}
