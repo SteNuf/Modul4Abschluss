@@ -72,14 +72,23 @@ function renderQuestion(question) {
   const questionAnswer = document.createElement("div");
   questionAnswer.classList.add("total-answer-container");
 
-  question.answers.forEach((answer) => {
+  const answerCopy = [];
+  question.answer.forEach((answer) => {
+    answerCopy.push(answer);
+  });
+
+  while (answerCopy.length > 0) {
+    const randomPointer = Math.floor(Math.random() * answerCopy.length);
+
+    const answer = answerCopy.splice(randomPointer, 1)[0];
+
     const answerDiv = document.createElement("button");
     answerDiv.id = answer.id;
     answerDiv.setAttribute("onclick", `validate('${answer.id}')`);
     answerDiv.classList.add("answer");
     answerDiv.appendChild(document.createTextNode(answer.text));
     questionAnswer.appendChild(answerDiv);
-  });
+  }
 
   questionDiv.appendChild(questionTitle);
   questionDiv.appendChild(questionAnswer);
